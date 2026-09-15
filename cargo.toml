@@ -1,0 +1,29 @@
+# =========================================================================
+# Copyright (c) 2026 Marcus Pratt. All Rights Reserved.
+# Distributed under the terms of the GNU Affero General Public License (AGPLv3).
+# For commercial production licensing inquiries, contact the author directly.
+# =========================================================================
+[package]
+name = "helix_backbone"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "helix_backbone"
+crate-type = ["cdylib"] # FORCES THE COMPILER TO SPIT OUT A UNIVERSAL SYSTEM LAYER (.DLL / .SO)
+path = "src/lib.rs"
+
+[dependencies]
+tokio = { version = "1", features = ["full"] } # Keeps your high-performance multi-threaded async runtime active
+mimalloc = {version ="0.1", default-features = false }
+crossbeam-channel = "0.5"
+dashmap = "5.5"
+futures-util = "0.3"
+
+[profile.release]
+strip = true      # Automatically strips out all internal function and variable names for obfuscation
+lto = fat         # Activates full Link-Time Optimization across ALL crate boundaries.
+panic = "abort"   # Removes all descriptive panic text strings from the compiled binary structure
+opt-level = 3     # Maximizes binary performance and loop optimizations down on your bare metal
+codegen-units = 1 # Reduces parallel code generation to maximize global optimizations and scramble paths further
+incremental = false
