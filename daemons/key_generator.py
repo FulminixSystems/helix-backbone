@@ -1,5 +1,5 @@
 # =========================================================================
-# Copyright (c) 2026 Mark Pratt. All Rights Reserved.
+# Copyright (c) 2026 Marcus Pratt. All Rights Reserved.
 # Distributed under the terms of the GNU Affero General Public License (AGPLv3).
 # For commercial production licensing inquiries, contact the author directly.
 # =========================================================================
