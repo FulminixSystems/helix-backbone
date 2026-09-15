@@ -1,0 +1,8 @@
+[build]
+rustflags = [
+    "-C", "target-cpu=native",
+    "-C", "link-arg=-s",
+    "-C", "control-flow-guard",
+    "-C", "panic=abort",        # REMOVES EXTRA RESIDUAL CRASH STRING SYMBOLS
+    "-C", "opt-level=3",        # FORCES MAXIMUM SILICON LAYER SPEED SPEED UP
+]
